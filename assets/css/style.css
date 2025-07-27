@@ -1,0 +1,441 @@
+/* Custom CSS Variables for DACH Color Scheme */
+:root {
+    --primary: #1A1B1F;
+    --accent: #FFD166;
+    --secondary: #6C63FF;
+    --highlight: #F67280;
+    --gray-900: #111827;
+    --gray-800: #1F2937;
+    --gray-700: #374151;
+    --gray-400: #9CA3AF;
+    --gray-300: #D1D5DB;
+}
+
+/* Configure Tailwind with custom colors */
+.config {
+    --tw-color-primary: var(--primary);
+    --tw-color-accent: var(--accent);
+    --tw-color-secondary: var(--secondary);
+    --tw-color-highlight: var(--highlight);
+}
+
+/* Font Family */
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom Color Classes */
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.text-accent {
+    color: var(--accent);
+}
+
+.text-secondary {
+    color: var(--secondary);
+}
+
+.text-highlight {
+    color: var(--highlight);
+}
+
+.border-accent {
+    border-color: var(--accent);
+}
+
+.border-secondary {
+    border-color: var(--secondary);
+}
+
+.border-highlight {
+    border-color: var(--highlight);
+}
+
+/* Navigation Styles */
+.nav-link {
+    @apply text-gray-300 hover:text-accent px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+}
+
+.nav-link.active {
+    @apply text-accent bg-accent/10;
+}
+
+.nav-link-mobile {
+    @apply text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200;
+}
+
+.nav-link-mobile.active {
+    @apply text-accent bg-accent/10;
+}
+
+/* Button Styles */
+.btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-accent text-primary font-semibold rounded-lg hover:bg-accent/90 transition-all duration-200 transform hover:scale-105;
+}
+
+.btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-secondary text-white font-semibold rounded-lg hover:bg-secondary/90 transition-all duration-200 transform hover:scale-105;
+}
+
+.btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 border-2 border-accent text-accent font-semibold rounded-lg hover:bg-accent hover:text-primary transition-all duration-200 transform hover:scale-105;
+}
+
+/* Card Styles */
+.feature-card {
+    @apply bg-primary border border-gray-800 rounded-xl p-6 hover:border-accent/50 transition-all duration-300 transform hover:scale-105;
+}
+
+.stat-card {
+    @apply text-center p-4 bg-gray-900/50 rounded-lg border border-gray-800;
+}
+
+.stat-card-large {
+    @apply text-center p-6 bg-gray-900 border border-gray-800 rounded-xl hover:border-accent/30 transition-colors duration-300;
+}
+
+.roadmap-card {
+    @apply bg-primary border border-gray-800 rounded-xl p-6 hover:shadow-lg transition-all duration-300;
+}
+
+.transaction-card {
+    @apply bg-primary border border-gray-800 rounded-xl p-6 text-center hover:border-secondary/50 transition-colors duration-300;
+}
+
+.benefit-card {
+    @apply bg-primary border border-gray-800 rounded-xl p-6 hover:border-accent/50 transition-all duration-300 transform hover:scale-105;
+}
+
+.governance-step {
+    @apply bg-primary border border-gray-800 rounded-xl p-8 text-center hover:border-secondary/50 transition-colors duration-300;
+}
+
+.governance-area {
+    @apply bg-primary border border-gray-800 rounded-xl p-6 hover:border-accent/50 transition-all duration-300 transform hover:scale-105;
+}
+
+.milestone-card {
+    @apply text-center p-6 bg-gray-900 border border-gray-800 rounded-xl hover:border-accent/30 transition-colors duration-300;
+}
+
+.contact-item {
+    @apply flex items-center space-x-4 p-4 bg-primary border border-gray-800 rounded-lg hover:border-accent/50 transition-all duration-300 transform hover:scale-105;
+}
+
+/* FAQ Styles */
+.faq-item .faq-question:hover {
+    border-color: var(--accent);
+    opacity: 0.8;
+}
+
+.faq-item .faq-answer {
+    display: none;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+/* Footer Styles */
+.footer-link {
+    @apply text-gray-400 hover:text-accent transition-colors duration-200;
+}
+
+.social-link {
+    @apply text-gray-400 hover:text-accent transition-colors duration-200 transform hover:scale-110;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-900);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray-700);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Loading Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Hero Section Animations */
+@keyframes heroTitle {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title {
+    animation: heroTitle 1s ease-out 0.2s both;
+}
+
+.hero-subtitle {
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.hero-cta {
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Scale on Hover */
+@keyframes scaleHover {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+/* Clean Button Hover Effects - No Glow */
+.btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+}
+
+.btn-outline:hover {
+    transform: translateY(-2px);
+}
+
+/* Coin Animation Effects */
+@keyframes coinSpin {
+    0% { transform: perspective(100px) rotateY(0deg); }
+    100% { transform: perspective(100px) rotateY(360deg); }
+}
+
+@keyframes coinFlip {
+    0% { transform: rotateY(0deg) scale(1); }
+    50% { transform: rotateY(90deg) scale(0.9); }
+    100% { transform: rotateY(180deg) scale(1); }
+}
+
+@keyframes goldShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Clean Logo Effects - No Animations */
+
+/* Stats Card Enhancements */
+.stat-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Stats cards - clean minimal hover */
+
+/* Feature Card Glow Effects */
+.feature-card {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Feature cards - clean hover without glow */
+
+/* Clean Accent Text - No Glow */
+.text-accent {
+    color: #FFD166;
+}
+
+/* Smooth Page Transitions */
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: pageLoad 0.5s ease-out;
+}
+
+/* Enhanced Mobile Menu Animation */
+.mobile-menu {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.show {
+    transform: translateY(0);
+}
+
+/* Pulse Animation for CTA buttons */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 209, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 209, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 209, 102, 0);
+    }
+}
+
+.btn-primary:hover {
+    animation: pulse 2s infinite;
+}
+
+/* Mobile Menu Transitions */
+.mobile-menu {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Form Styles */
+input:focus, 
+textarea:focus, 
+select:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 2px rgba(255, 209, 102, 0.2) !important;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    .roadmap-card {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .nav,
+    .footer,
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus Styles for Better Accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .bg-primary {
+        background-color: #000000;
+    }
+    
+    .text-gray-400 {
+        color: #ffffff;
+    }
+    
+    .border-gray-800 {
+        border-color: #ffffff;
+    }
+}
+
+/* Dark Mode (Default) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+    }
+}
