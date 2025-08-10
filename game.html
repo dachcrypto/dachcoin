@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dach Dash</title>
+  <link rel="stylesheet" href="assets/css/game.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="game-container"></div>
+  <div id="start-screen" class="overlay">
+    <h1>Dach Dash</h1>
+    <p>Tap or press space to jump. Collect coins and avoid obstacles.</p>
+    <button id="start-btn" class="button">Start</button>
+  </div>
+  <div id="game-over" class="overlay hidden">
+    <h2>Game Over</h2>
+    <p>Score: <span id="final-score">0</span></p>
+    <p>High Score: <span id="high-score">0</span></p>
+    <button id="play-again" class="button">Play Again</button>
+    <a id="back-home" class="button" href="index.html">Back to DACH</a>
+  </div>
+  <div id="score" class="score">0</div>
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+  <script src="assets/js/game.js"></script>
+</body>
+</html>
