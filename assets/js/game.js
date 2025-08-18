@@ -56,11 +56,7 @@ class DachDash extends Phaser.Scene {
     this.player.body.setOffset(0, 20);
     this.anims.create({
       key: 'run',
-      frames: [
-        { key: 'runner1' },
-        { key: 'runner2' },
-        { key: 'runner3' }
-      ],
+      frames: [{ key: 'runner1' }, { key: 'runner2' }, { key: 'runner3' }],
       frameRate: 10,
       repeat: -1
     });
@@ -85,16 +81,6 @@ class DachDash extends Phaser.Scene {
     this.scoreText = document.getElementById('score');
     this.highScore = parseInt(localStorage.getItem('dachdashHighScore') || '0'); // TODO: replace with backend storage
 
-    // UI buttons
-    document.getElementById('start-btn').addEventListener('click', () => {
-      document.getElementById('start-screen').classList.add('hidden');
-      this.startGame();
-    });
-    document.getElementById('play-again').addEventListener('click', () => {
-      document.getElementById('game-over').classList.add('hidden');
-      this.scene.restart();
-    });
-
     // TODO: add background music
 
     // Coin animation
@@ -107,7 +93,11 @@ class DachDash extends Phaser.Scene {
   }
 
   startGame() {
+    this.gameSpeed = 200;
+    this.score = 0;
+    this.scoreText.textContent = this.score;
     this.gameRunning = true;
+
     this.spawnObstacleEvent = this.time.addEvent({
       delay: 1500,
       callback: this.spawnObstacle,
@@ -174,21 +164,26 @@ class DachDash extends Phaser.Scene {
 
   update(time, delta) {
     if (!this.gameRunning) return;
+
     const deltaSpeed = delta / 1000;
     this.gameSpeed += 2 * deltaSpeed;
+
     this.bg1.tilePositionX += this.gameSpeed * 0.1 * deltaSpeed;
     this.bg2.tilePositionX += this.gameSpeed * 0.2 * deltaSpeed;
     this.buildings.tilePositionX += this.gameSpeed * 0.3 * deltaSpeed;
     this.clouds.tilePositionX += this.gameSpeed * 0.05 * deltaSpeed;
     this.ground.tilePositionX += this.gameSpeed * deltaSpeed;
+
     this.obstacles.children.iterate(ob => {
       ob.body.setVelocityX(-this.gameSpeed);
       if (ob.x < -50) ob.destroy();
     });
+
     this.coins.children.iterate(c => {
       c.body.setVelocityX(-this.gameSpeed);
       if (c.x < -50) c.destroy();
     });
+
     if (this.player.body.blocked.down && this.player.anims.currentAnim.key !== 'run') {
       this.player.play('run');
     }
@@ -229,8 +224,22 @@ const config = {
   scene: DachDash
 };
 
+let game;
+
 window.addEventListener('load', () => {
-  const game = new Phaser.Game(config);
-  resize(game);
-  window.addEventListener('resize', () => resize(game));
+  document.getElementById('start-btn').addEventListener('click', () => {
+    document.getElementById('start-screen').classList.add('hidden');
+    game = new Phaser.Game(config);
+    const scene = game.scene.getScene('DachDash');
+    scene.events.once(Phaser.Scenes.Events.CREATE, () => scene.startGame());
+    resize(game);
+    window.addEventListener('resize', () => resize(game));
+  });
+
+  document.getElementById('play-again').addEventListener('click', () => {
+    document.getElementById('game-over').classList.add('hidden');
+    const scene = game.scene.getScene('DachDash');
+    scene.scene.restart();
+    scene.events.once(Phaser.Scenes.Events.CREATE, () => scene.startGame());
+  });
 });
