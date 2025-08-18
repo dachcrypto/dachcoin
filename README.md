@@ -47,11 +47,19 @@ The `CNAME` file is already configured for the custom domain. To complete the se
    - Ensure custom domain is set to `dachcoin.io`
    - Enable "Enforce HTTPS"
 
+## How to Deploy the Game
+
+1. Push changes to the `main` branch.
+2. In the repository, go to **Settings → Pages**.
+3. Set the source to deploy from the `main` branch and `/ (root)` directory.
+4. The game will be accessible at `https://<username>.github.io/<repo>/game.html`.
+
 ## Project Structure
 
 ```
 /
 ├── index.html          # Landing page
+├── game.html           # Dach Dash game
 ├── tokenomics.html     # Token economics
 ├── roadmap.html        # Project roadmap
 ├── whitepaper.html     # Technical documentation
@@ -60,12 +68,12 @@ The `CNAME` file is already configured for the custom domain. To complete the se
 ├── contact.html       # Contact form
 ├── assets/
 │   ├── css/
+│   │   ├── game.css    # Game styles
 │   │   └── style.css   # Custom styles
 │   ├── js/
+│   │   ├── game.js     # Game logic
 │   │   └── main.js     # JavaScript functionality
-│   └── images/
-│       ├── dachshund-coin-icon.png
-│       └── favicon-32x32.png
+│   └── images/         # Site and game images (see `dach_dash_assets_fixed.zip` for game assets)
 ├── CNAME              # Custom domain configuration
 └── README.md          # This file
 ```
